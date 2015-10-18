@@ -5,4 +5,14 @@ class VisitTest < ActiveSupport::TestCase
   	visit = Visit.new
     assert_not visit.save
   end
+
+  test "should not save a visit without a start time" do
+  	visit = Visit.new(
+  		:day => '2015-10-18',
+  		:finish => '13:00',
+  		:description => 'test'
+  	)
+    assert_not visit.save
+  end
+
 end

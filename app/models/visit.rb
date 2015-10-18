@@ -1,3 +1,3 @@
 class Visit < ActiveRecord::Base
-	validates :day, presence: true
+	validates :day, :start, presence: true
 end
