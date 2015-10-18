@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  day: 2015-10-18
+  start: 2015-10-18 17:01:48
+  finish: 2015-10-18 17:01:48
+  description: 
+
+two:
+  day: 2015-10-18
+  start: 2015-10-18 17:01:48
+  finish: 2015-10-18 17:01:48
+  description: 
