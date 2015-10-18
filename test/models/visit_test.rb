@@ -37,4 +37,24 @@ class VisitTest < ActiveSupport::TestCase
     assert_not visit.save
   end
 
+  test "should not save when the finish time is less than time" do
+    visit = Visit.new(
+      :day => '2015-10-18',
+      :start => '9:00',
+      :finish => '8:00',
+      :description => 'test'
+    )
+    assert_not visit.save
+  end
+
+  test "should not save when the finish time is less than half hour" do
+    visit = Visit.new(
+      :day => '2015-10-18',
+      :start => '9:00',
+      :finish => '9:29',
+      :description => 'test'
+    )
+    assert_not visit.save
+  end
+
 end
