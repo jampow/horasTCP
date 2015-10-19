@@ -1,33 +1,52 @@
-<%= form_for(@visit) do |f| %>
-  <% if @visit.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@visit.errors.count, "error") %> prohibited this visit from being saved:</h2>
+<%= form_for @visit, :html => { :class => "form-horizontal visit" } do |f| %>
 
-      <ul>
-      <% @visit.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <% if @visit.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@visit.errors.count, "error") %> prohibited this visit from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @visit.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :day %><br>
-    <%= f.date_select :day %>
+  <div class="control-group">
+    <%= f.label :day, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :day, :class => 'form-control' %>
+    </div>
+    <%= error_span(@visit[:day]) %>
   </div>
-  <div class="field">
-    <%= f.label :start %><br>
-    <%= f.time_select :start %>
+  <div class="control-group">
+    <%= f.label :start, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :start, :class => 'form-control' %>
+    </div>
+    <%= error_span(@visit[:start]) %>
   </div>
-  <div class="field">
-    <%= f.label :finish %><br>
-    <%= f.time_select :finish %>
+  <div class="control-group">
+    <%= f.label :finish, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :finish, :class => 'form-control' %>
+    </div>
+    <%= error_span(@visit[:finish]) %>
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :description, :class => 'form-control' %>
+    </div>
+    <%= error_span(@visit[:description]) %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            visits_path, :class => 'btn btn-default' %>
+
 <% end %>

@@ -1,33 +1,38 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Visits</h1>
-
-<table>
+<%- model_class = Visit -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Day</th>
-      <th>Start</th>
-      <th>Finish</th>
-      <th>Description</th>
-      <th colspan="3"></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:day) %></th>
+      <th><%= model_class.human_attribute_name(:start) %></th>
+      <th><%= model_class.human_attribute_name(:finish) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @visits.each do |visit| %>
       <tr>
-        <td><%= visit.day %></td>
-        <td><%= visit.start %></td>
-        <td><%= visit.finish %></td>
-        <td><%= visit.description %></td>
-        <td><%= link_to 'Show', visit %></td>
-        <td><%= link_to 'Edit', edit_visit_path(visit) %></td>
-        <td><%= link_to 'Destroy', visit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to visit.id, visit_path(visit) %></td>
+        <td><%= visit.day.strftime("%d/%m/%Y") %></td>
+        <td><%= visit.start.strftime("%H:%M") %></td>
+        <td><%= visit.finish.strftime("%H:%M") %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_visit_path(visit), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      visit_path(visit),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Visit', new_visit_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_visit_path,
+            :class => 'btn btn-primary' %>
