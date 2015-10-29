@@ -9,7 +9,7 @@
       <th><%= model_class.human_attribute_name(:day) %></th>
       <th><%= model_class.human_attribute_name(:start) %></th>
       <th><%= model_class.human_attribute_name(:finish) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <th class="hidden-xs"><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
@@ -19,7 +19,7 @@
         <td><%= visit.day.strftime("%d/%m/%Y") %></td>
         <td><%= visit.start.strftime("%H:%M") %></td>
         <td><%= visit.finish.strftime("%H:%M") %></td>
-        <td>
+        <td class="hidden-xs">
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_visit_path(visit), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
