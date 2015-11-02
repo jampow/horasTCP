@@ -24,3 +24,6 @@ module HorasTCP
     config.active_record.raise_in_transactional_callbacks = true
   end
 end
+
+gmail_username: ''
+gmail_password: ''
