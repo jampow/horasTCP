@@ -25,5 +25,3 @@ module HorasTCP
   end
 end
 
-gmail_username: ''
-gmail_password: ''
