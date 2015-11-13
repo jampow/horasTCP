@@ -14,7 +14,7 @@ class VisitsController < ApplicationController
 
   # GET /visits/new
   def new
-    @visit = Visit.new
+    @visit = Visit.new(:day => Date.today)
   end
 
   # GET /visits/1/edit
