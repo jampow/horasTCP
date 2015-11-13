@@ -57,4 +57,9 @@ class VisitTest < ActiveSupport::TestCase
     assert_not visit.save
   end
 
+  test "should bring a report of the month until the especified date" do
+    report = Visit.report('2015-10-20')
+    
+  end
+
 end

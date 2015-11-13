@@ -7,7 +7,13 @@ one:
   description: some description
 
 two:
-  day: 2015-10-18
-  start: 2015-10-18 17:01:48
-  finish: 2015-10-18 18:01:48
+  day: 2015-10-19
+  start: 2015-10-19 17:01:48
+  finish: 2015-10-19 18:01:48
   description: another test description
+
+three:
+  day: 2015-11-01
+  start: 2015-11-01 9:00:00
+  finish: 2015-11-01 12:00:00
+  description: I did some work here
