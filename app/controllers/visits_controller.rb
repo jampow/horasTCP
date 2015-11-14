@@ -29,7 +29,7 @@ class VisitsController < ApplicationController
     respond_to do |format|
       if @visit.save
 
-        Reporter.visit.deliver
+        Reporter.visit.deliver_now
 
         format.html { redirect_to @visit, notice: 'Visit was successfully created.' }
         format.json { render :show, status: :created, location: @visit }
