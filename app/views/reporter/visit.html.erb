@@ -7,7 +7,7 @@ Segue relatório da visita de <%= Date::DAYNAMES[@visit.day.wday] %> <%= @visit.
 <strong>Total do dia:</strong> <%= (@visit.finish - @visit.start) / 3600 %>
 <strong>Total do mês:</strong> <%= Visit.month_status @visit.day.to_formatted_s :db %>
 
-<%= @visit.description %>
+<%= markdown @visit.description %>
 
 Att
 Gianpaulo
