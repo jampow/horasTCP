@@ -1,5 +1,7 @@
 == README
 
+[![Build Status](https://travis-ci.org/jampow/horasTCP.svg?branch=master)](https://travis-ci.org/jampow/horasTCP)
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
