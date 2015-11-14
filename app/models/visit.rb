@@ -2,6 +2,8 @@ class Visit < ActiveRecord::Base
 	validates :day, :start, :finish, :description, presence: true
 	validate :is_valid_time?
 
+	default_scope { order("day DESC") }
+
 	def time_difference
 		if !self.finish.nil? and !self.start.nil?
 			(self.finish - self.start) / 60
