@@ -57,9 +57,12 @@ class VisitTest < ActiveSupport::TestCase
     assert_not visit.save
   end
 
-  test "should bring a report of the month until the especified date" do
-    report = Visit.report('2015-10-20')
-    
+  test "should bring the total of worked hours from the beginning of the month until the given date" do
+    totalHours = Visit.month_status('2015-10-20')
+    assert_equal 8.5, totalHours
+
+    totalHours = Visit.month_status('2015-10-18')
+    assert_equal 3.5, totalHours
   end
 
 end

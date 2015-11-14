@@ -17,4 +17,16 @@ class Visit < ActiveRecord::Base
 			errors.add(:finish, 'should be, at least, a half hour bigger than start time')
 		end
 	end
+
+	def self.month_status(date)
+		date = Date.parse(date)
+		limit_date = date
+		begin_date = date.beginning_of_month
+
+		visits = self.where(['day >= ? and day <= ?', begin_date, limit_date])
+
+		total = 0.0
+		visits.each{ |visit| total += (visit.finish - visit.start) / 3600}
+		total
+	end
 end

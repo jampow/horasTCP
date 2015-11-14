@@ -2,14 +2,14 @@
 
 one:
   day: 2015-10-18
-  start: 2015-10-18 17:01:48
-  finish: 2015-10-18 17:31:48
+  start: 2015-10-18 9:00:00
+  finish: 2015-10-18 12:30:00
   description: some description
 
 two:
   day: 2015-10-19
-  start: 2015-10-19 17:01:48
-  finish: 2015-10-19 18:01:48
+  start: 2015-10-19 08:00:00
+  finish: 2015-10-19 13:00:00
   description: another test description
 
 three:
