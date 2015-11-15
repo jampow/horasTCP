@@ -5,6 +5,6 @@ class Reporter < ApplicationMailer
 
 	def visit(visit)
 		@visit = visit
-		mail(to: ENV['visits_to'], subject: "Manutenção " + visit.day.strftime("%d/%m/%Y") )
+		mail(to: ENV['visits_to'].split(";"), subject: "Manutenção " + visit.day.strftime("%d/%m/%Y") )
 	end
 end
