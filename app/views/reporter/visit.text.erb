@@ -1,2 +1,13 @@
-Hi
-It works!!
+Oi Jô e Henrique
+
+Segue relatório da visita de <%= Date::DAYNAMES[@visit.day.wday] %> <%= @visit.day %>
+
+Entrada: <%= @visit.start.to_formatted_s :time %>
+Saída: <%= @visit.finish.to_formatted_s :time %>
+Total do dia: <%= (@visit.finish - @visit.start) / 3600 %>
+Total do mês: <%= Visit.month_status @visit.day.to_formatted_s :db %>
+
+<%= @visit.description %>
+
+Att
+Gianpaulo

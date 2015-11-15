@@ -1,13 +1,17 @@
 Oi Jô e Henrique
 
-Segue relatório da visita de <%= Date::DAYNAMES[@visit.day.wday] %> <%= @visit.day %>
+<p>Segue relatório da visita de <%= Date::DAYNAMES[@visit.day.wday] %> <%= @visit.day %></p>
 
-<strong>Entrada:</strong> <%= @visit.start.to_formatted_s :time %>
-<strong>Saída:</strong> <%= @visit.finish.to_formatted_s :time %>
-<strong>Total do dia:</strong> <%= (@visit.finish - @visit.start) / 3600 %>
-<strong>Total do mês:</strong> <%= Visit.month_status @visit.day.to_formatted_s :db %>
+<table>
+	<tr>
+		<th>Entrada:</th> <td><%= @visit.start.to_formatted_s :time %></td>
+		<th>Saída:</th> <td><%= @visit.finish.to_formatted_s :time %></td>
+		<th>Total do dia:</th> <td><%= (@visit.finish - @visit.start) / 3600 %></td>
+		<th>Total do mês:</th> <td><%= Visit.month_status @visit.day.to_formatted_s :db %></td>
+	</tr>
+</table>
 
 <%= markdown @visit.description %>
 
-Att
-Gianpaulo
+<p>Att<br />
+Gianpaulo<p>
