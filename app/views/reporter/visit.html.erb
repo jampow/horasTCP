@@ -4,18 +4,20 @@ Oi Jô e Henrique
 
 <table>
 	<tr>
-		<th>Entrada:</th> <td><%= @visit.start.to_formatted_s :time %></td>
+		<td><strong>Entrada:</strong></td> <td><%= @visit.start.to_formatted_s :time %></td>
 	</tr>
 	<tr>
-		<th>Saída:</th> <td><%= @visit.finish.to_formatted_s :time %></td>
+		<td><strong>Saída:</strong></td> <td><%= @visit.finish.to_formatted_s :time %></td>
 	</tr>
 	<tr>
-		<th>Total do dia:</th> <td><%= (@visit.finish - @visit.start) / 3600 %></td>
+		<td><strong>Total do dia:</strong></td> <td><%= (@visit.finish - @visit.start) / 3600 %></td>
 	</tr>
 	<tr>
-		<th>Total do mês:</th> <td><%= Visit.month_status @visit.day.to_formatted_s :db %></td>
+		<td><strong>Total do mês:</strong></td> <td><%= Visit.month_status @visit.day.to_formatted_s :db %></td>
 	</tr>
 </table>
+
+<br />
 
 <%= markdown @visit.description %>
 
