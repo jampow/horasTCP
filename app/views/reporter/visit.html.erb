@@ -5,8 +5,14 @@ Oi Jô e Henrique
 <table>
 	<tr>
 		<th>Entrada:</th> <td><%= @visit.start.to_formatted_s :time %></td>
+	</tr>
+	<tr>
 		<th>Saída:</th> <td><%= @visit.finish.to_formatted_s :time %></td>
+	</tr>
+	<tr>
 		<th>Total do dia:</th> <td><%= (@visit.finish - @visit.start) / 3600 %></td>
+	</tr>
+	<tr>
 		<th>Total do mês:</th> <td><%= Visit.month_status @visit.day.to_formatted_s :db %></td>
 	</tr>
 </table>
