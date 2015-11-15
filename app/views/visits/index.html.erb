@@ -16,9 +16,9 @@
     <% @visits.each do |visit| %>
       <tr>
         <td><%= link_to visit.id, visit_path(visit) %></td>
-        <td><%= visit.day.strftime("%d/%m/%Y") %></td>
-        <td><%= visit.start.strftime("%H:%M") %></td>
-        <td><%= visit.finish.strftime("%H:%M") %></td>
+        <td><%= l visit.day %></td>
+        <td><%= l visit.start, format: :time %></td>
+        <td><%= l visit.finish, format: :time %></td>
         <td class="hidden-xs">
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_visit_path(visit), :class => 'btn btn-default btn-xs' %>

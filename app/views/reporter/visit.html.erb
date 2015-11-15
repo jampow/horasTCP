@@ -1,13 +1,13 @@
-Oi Jô e Henrique
+<p>Oi Jô e Henrique</p>
 
-<p>Segue relatório da visita de <%= Date::DAYNAMES[@visit.day.wday] %> <%= @visit.day %></p>
+<p>Segue relatório da visita de <%= I18n.t(:"date.day_names")[visit.day.wday] %> <%= l @visit.day %></p>
 
 <table>
 	<tr>
-		<td><strong>Entrada:</strong></td> <td><%= @visit.start.to_formatted_s :time %></td>
+		<td><strong>Entrada:</strong></td> <td><%= l @visit.start, format: :time %></td>
 	</tr>
 	<tr>
-		<td><strong>Saída:</strong></td> <td><%= @visit.finish.to_formatted_s :time %></td>
+		<td><strong>Saída:</strong></td> <td><%= l @visit.finish, format: :time %></td>
 	</tr>
 	<tr>
 		<td><strong>Total do dia:</strong></td> <td><%= (@visit.finish - @visit.start) / 3600 %></td>

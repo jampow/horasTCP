@@ -5,11 +5,11 @@
 
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:day) %>:</strong></dt>
-  <dd><%= @visit.day %></dd>
+  <dd><%= l @visit.day %></dd>
   <dt><strong><%= model_class.human_attribute_name(:start) %>:</strong></dt>
-  <dd><%= @visit.start %></dd>
+  <dd><%= l @visit.start, format: :time %></dd>
   <dt><strong><%= model_class.human_attribute_name(:finish) %>:</strong></dt>
-  <dd><%= @visit.finish %></dd>
+  <dd><%= l @visit.finish, format: :time %></dd>
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
   <dd><%= markdown @visit.description %></dd>
 </dl>
