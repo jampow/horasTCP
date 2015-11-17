@@ -144,6 +144,7 @@ pt-BR:
       edit: "Editar"
       back: "Voltar"
       cancel: "Cancelar"
+      sendemail: "Enviar e-mail"
     titles:
       new: "Novo"
       update: "Autalizar"
