@@ -1,6 +1,6 @@
 class EmailController < ApplicationController
   def visit
-  	@visit = Visit.find params[:id]
+  	@visit = Visit.find_by_id params[:id]
 
   	if @visit
       Reporter.visit(@visit).deliver_now
