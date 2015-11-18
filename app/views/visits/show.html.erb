@@ -16,6 +16,10 @@
   <dd><%= l @visit.start, format: :time %></dd>
   <dt><strong><%= model_class.human_attribute_name(:finish) %>:</strong></dt>
   <dd><%= l @visit.finish, format: :time %></dd>
+  <dt><strong>Total do dia:</strong></dt>
+  <dd><%= (@visit.finish - @visit.start) / 3600 %></dd>
+  <dt><strong>Total do mês:</strong></dt>
+  <dd><%= @month_amount %></dd>
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
   <dd><%= markdown @visit.description %></dd>
 </dl>

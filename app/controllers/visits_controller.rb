@@ -10,6 +10,7 @@ class VisitsController < ApplicationController
   # GET /visits/1
   # GET /visits/1.json
   def show
+    @month_amount = Visit.month_status(@visit.day.to_formatted_s :db)
   end
 
   # GET /visits/new
