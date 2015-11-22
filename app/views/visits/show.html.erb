@@ -20,6 +20,8 @@
   <dd><%= (@visit.finish - @visit.start) / 3600 %></dd>
   <dt><strong>Total do mês:</strong></dt>
   <dd><%= @month_amount %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:email_date) %>:</strong></dt>
+  <dd><%= l @visit.email_date, format: :short if !@visit.email_date.nil? %></dd>
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
   <dd><%= markdown @visit.description %></dd>
 </dl>

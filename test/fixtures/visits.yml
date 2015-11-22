@@ -16,4 +16,13 @@ three:
   day: 2015-11-01
   start: 2015-11-01 9:00:00
   finish: 2015-11-01 12:00:00
+  email_date: 2015-11-01 12:02:00
+  description: I did some work here
+
+four:
+  day: 2015-11-03
+  start: 2015-11-03 9:00:00
+  finish: 2015-11-03 12:00:00
+  email_date: 2015-11-04 12:02:00
+  updated_at: 2015-11-05 12:02:00
   description: I did some work here

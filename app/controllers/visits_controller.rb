@@ -11,6 +11,10 @@ class VisitsController < ApplicationController
   # GET /visits/1.json
   def show
     @month_amount = Visit.month_status(@visit.day.to_formatted_s :db)
+
+    if !@visit.email_date.nil? and @visit.updated_at.to_s > @visit.email_date.to_s
+      flash[:notice] = "send the e-mail again"
+    end
   end
 
   # GET /visits/new

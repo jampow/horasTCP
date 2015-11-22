@@ -46,4 +46,10 @@ class VisitsControllerTest < ActionController::TestCase
 
     assert_redirected_to visits_path
   end
+
+  test "should give an alert of unsent e-mail" do
+    @visit = visits(:four)
+    get :show, id: @visit
+    assert_equal "send the e-mail again", flash[:notice]
+  end
 end
