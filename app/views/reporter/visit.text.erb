@@ -1,6 +1,6 @@
 Oi Jô e Henrique
 
-Segue relatório da visita de <%= Date::DAYNAMES[@visit.day.wday] %> <%= @visit.day %>
+Segue relatório da visita de <%= Date::DAYNAMES[@visit.day.wday].downcase %> <%= @visit.day %>
 
 Entrada: <%= @visit.start.to_formatted_s :time %>
 Saída: <%= @visit.finish.to_formatted_s :time %>
