@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @trial_balance.year %>
+</p>
+
+<p>
+  <strong>Month:</strong>
+  <%= @trial_balance.month %>
+</p>
+
+<p>
+  <strong>Totalhours:</strong>
+  <%= @trial_balance.totalHours %>
+</p>
+
+<p>
+  <strong>Valuehour:</strong>
+  <%= @trial_balance.valueHour %>
+</p>
+
+<p>
+  <strong>Valuemonth:</strong>
+  <%= @trial_balance.valueMonth %>
+</p>
+
+<%= link_to 'Edit', edit_trial_balance_path(@trial_balance) %> |
+<%= link_to 'Back', trial_balances_path %>

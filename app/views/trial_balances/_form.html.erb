@@ -1,0 +1,37 @@
+<%= form_for(@trial_balance) do |f| %>
+  <% if @trial_balance.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@trial_balance.errors.count, "error") %> prohibited this trial_balance from being saved:</h2>
+
+      <ul>
+      <% @trial_balance.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :year %><br>
+    <%= f.number_field :year %>
+  </div>
+  <div class="field">
+    <%= f.label :month %><br>
+    <%= f.number_field :month %>
+  </div>
+  <div class="field">
+    <%= f.label :totalHours %><br>
+    <%= f.text_field :totalHours %>
+  </div>
+  <div class="field">
+    <%= f.label :valueHour %><br>
+    <%= f.text_field :valueHour %>
+  </div>
+  <div class="field">
+    <%= f.label :valueMonth %><br>
+    <%= f.text_field :valueMonth %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

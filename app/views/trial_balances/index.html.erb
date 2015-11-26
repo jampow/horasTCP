@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Trial Balances</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Year</th>
+      <th>Month</th>
+      <th>Totalhours</th>
+      <th>Valuehour</th>
+      <th>Valuemonth</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @trial_balances.each do |trial_balance| %>
+      <tr>
+        <td><%= trial_balance.year %></td>
+        <td><%= trial_balance.month %></td>
+        <td><%= trial_balance.totalHours %></td>
+        <td><%= trial_balance.valueHour %></td>
+        <td><%= trial_balance.valueMonth %></td>
+        <td><%= link_to 'Show', trial_balance %></td>
+        <td><%= link_to 'Edit', edit_trial_balance_path(trial_balance) %></td>
+        <td><%= link_to 'Destroy', trial_balance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Trial balance', new_trial_balance_path %>
