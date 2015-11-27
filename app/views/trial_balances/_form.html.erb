@@ -1,37 +1,59 @@
-<%= form_for(@trial_balance) do |f| %>
-  <% if @trial_balance.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@trial_balance.errors.count, "error") %> prohibited this trial_balance from being saved:</h2>
+<%= form_for @trial_balance, :html => { :class => "form-horizontal trial_balance" } do |f| %>
 
-      <ul>
-      <% @trial_balance.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <% if @trial_balance.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@trial_balance.errors.count, "error") %> prohibited this trial_balance from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @trial_balance.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :year %><br>
-    <%= f.number_field :year %>
+  <div class="control-group">
+    <%= f.label :year, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :year, :class => 'form-control' %>
+    </div>
+    <%= error_span(@trial_balance[:year]) %>
   </div>
-  <div class="field">
-    <%= f.label :month %><br>
-    <%= f.number_field :month %>
+  <div class="control-group">
+    <%= f.label :month, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :month, :class => 'form-control' %>
+    </div>
+    <%= error_span(@trial_balance[:month]) %>
   </div>
-  <div class="field">
-    <%= f.label :totalHours %><br>
-    <%= f.text_field :totalHours %>
+  <div class="control-group">
+    <%= f.label :totalHours, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :totalHours, :class => 'form-control' %>
+    </div>
+    <%= error_span(@trial_balance[:totalHours]) %>
   </div>
-  <div class="field">
-    <%= f.label :valueHour %><br>
-    <%= f.text_field :valueHour %>
+  <div class="control-group">
+    <%= f.label :valueHour, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :valueHour, :class => 'form-control' %>
+    </div>
+    <%= error_span(@trial_balance[:valueHour]) %>
   </div>
-  <div class="field">
-    <%= f.label :valueMonth %><br>
-    <%= f.text_field :valueMonth %>
+  <div class="control-group">
+    <%= f.label :valueMonth, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :valueMonth, :class => 'form-control' %>
+    </div>
+    <%= error_span(@trial_balance[:valueMonth]) %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            trial_balances_path, :class => 'btn btn-default' %>
+
 <% end %>

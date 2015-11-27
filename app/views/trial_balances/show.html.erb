@@ -1,29 +1,27 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = TrialBalance -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Year:</strong>
-  <%= @trial_balance.year %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:year) %>:</strong></dt>
+  <dd><%= @trial_balance.year %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:month) %>:</strong></dt>
+  <dd><%= @trial_balance.month %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:totalHours) %>:</strong></dt>
+  <dd><%= @trial_balance.totalHours %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:valueHour) %>:</strong></dt>
+  <dd><%= @trial_balance.valueHour %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:valueMonth) %>:</strong></dt>
+  <dd><%= @trial_balance.valueMonth %></dd>
+</dl>
 
-<p>
-  <strong>Month:</strong>
-  <%= @trial_balance.month %>
-</p>
-
-<p>
-  <strong>Totalhours:</strong>
-  <%= @trial_balance.totalHours %>
-</p>
-
-<p>
-  <strong>Valuehour:</strong>
-  <%= @trial_balance.valueHour %>
-</p>
-
-<p>
-  <strong>Valuemonth:</strong>
-  <%= @trial_balance.valueMonth %>
-</p>
-
-<%= link_to 'Edit', edit_trial_balance_path(@trial_balance) %> |
-<%= link_to 'Back', trial_balances_path %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              trial_balances_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_trial_balance_path(@trial_balance), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              trial_balance_path(@trial_balance),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
