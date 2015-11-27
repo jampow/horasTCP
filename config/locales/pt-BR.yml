@@ -220,8 +220,15 @@ pt-BR:
     pm: ''
   activerecord:
     models:
+      trial_balance: "Balancete"
       visit: "Visita"
     attributes:
+      trial_balance:
+        year: "Ano"
+        month: "Mês"
+        totalhours: "Total de horas"
+        valuehour: "Valor da hora"
+        valuemonth: "Valor do mês"
       visit:
         day: "Dia"
         start: "Início"
