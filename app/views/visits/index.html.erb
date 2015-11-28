@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
+      <th>E-mail status</th>
       <th><%= model_class.human_attribute_name(:day) %></th>
       <th><%= model_class.human_attribute_name(:start) %></th>
       <th><%= model_class.human_attribute_name(:finish) %></th>
@@ -16,6 +17,7 @@
     <% @visits.each do |visit| %>
       <tr>
         <td><%= link_to visit.id, visit_path(visit) %></td>
+        <td><span class="glyphicon glyphicon-envelope <%= visit.email_warning_level %>" aria-hidden="true"></span></td>
         <td><%= l visit.day %></td>
         <td><%= l visit.start, format: :time %></td>
         <td><%= l visit.finish, format: :time %></td>

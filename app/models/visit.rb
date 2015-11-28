@@ -2,6 +2,8 @@ class Visit < ActiveRecord::Base
 	validates :day, :start, :finish, :description, presence: true
 	validate :is_valid_time?
 
+	attr_accessor :email_warning_level
+
 	default_scope { order("day DESC") }
 
 	def time_difference
@@ -28,5 +30,19 @@ class Visit < ActiveRecord::Base
 		total = 0.0
 		visits.each{ |visit| total += (visit.finish - visit.start) / 3600}
 		total
+	end
+
+	def check_email
+		if !this.email_date
+			this.email_warning_level = 'alert'
+		elsif this.email_date < this.updated_at
+			this.email_warning_level = 'warning'
+		else
+			this.email_warning_level = 'success'
+		end
+	end
+
+	def after_initialize
+		this.check_email
 	end
 end
