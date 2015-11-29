@@ -17,7 +17,7 @@
     <% @visits.each do |visit| %>
       <tr>
         <td><%= link_to visit.id, visit_path(visit) %></td>
-        <td><span class="glyphicon glyphicon-envelope <%= visit.email_warning_level %>" aria-hidden="true"></span></td>
+        <td><%= glyph(:envelope, {tag: :span}) %></span></td>
         <td><%= l visit.day %></td>
         <td><%= l visit.start, format: :time %></td>
         <td><%= l visit.finish, format: :time %></td>

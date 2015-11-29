@@ -2,9 +2,11 @@ class Visit < ActiveRecord::Base
 	validates :day, :start, :finish, :description, presence: true
 	validate :is_valid_time?
 
-	attr_accessor :email_warning_level
+	attr_accessor :email_status
 
 	default_scope { order("day DESC") }
+
+	after_initialize :set_email_status
 
 	def time_difference
 		if !self.finish.nil? and !self.start.nil?
@@ -32,17 +34,13 @@ class Visit < ActiveRecord::Base
 		total
 	end
 
-	def check_email
-		if !this.email_date
-			this.email_warning_level = 'alert'
-		elsif this.email_date < this.updated_at
-			this.email_warning_level = 'warning'
+	def set_email_status
+		if !self.email_date
+			self.email_status = 'alert'
+		elsif self.email_date < self.updated_at
+			self.email_status = 'warning'
 		else
-			this.email_warning_level = 'success'
+			self.email_status = 'success'
 		end
-	end
-
-	def after_initialize
-		this.check_email
 	end
 end
