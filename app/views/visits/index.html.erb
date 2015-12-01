@@ -6,7 +6,6 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
-      <th>E-mail status</th>
       <th><%= model_class.human_attribute_name(:day) %></th>
       <th><%= model_class.human_attribute_name(:start) %></th>
       <th><%= model_class.human_attribute_name(:finish) %></th>
@@ -15,9 +14,8 @@
   </thead>
   <tbody>
     <% @visits.each do |visit| %>
-      <tr>
+      <tr class="<%= visit.email_status%>">
         <td><%= link_to visit.id, visit_path(visit) %></td>
-        <td><%= glyph(:envelope, {tag: :span}) %></span></td>
         <td><%= l visit.day %></td>
         <td><%= l visit.start, format: :time %></td>
         <td><%= l visit.finish, format: :time %></td>
