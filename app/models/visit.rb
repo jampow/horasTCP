@@ -37,7 +37,7 @@ class Visit < ActiveRecord::Base
 	def set_email_status
 		if !self.email_date
 			self.email_status = 'danger'
-		elsif self.email_date < self.updated_at
+		elsif self.email_date.to_time.to_i < self.updated_at.to_time.to_i
 			self.email_status = 'warning'
 		else
 			self.email_status = ''
