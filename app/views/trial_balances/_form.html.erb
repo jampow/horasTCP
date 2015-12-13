@@ -1,4 +1,4 @@
-<%= form_for @trial_balance, :html => { :class => "form-horizontal trial_balance" } do |f| %>
+<%= form_for @trial_balance, :html => { :class => "form-horizontal trial_balance", "ng-app" => "trialBalance", "ng-controller" => "TrialBalanceController", "ng-init" => "totalHours=" + @trial_balance.totalHours.to_s } do |f| %>
 
     <% if @trial_balance.errors.any? %>
     <div id="error_expl" class="panel panel-danger">
@@ -32,21 +32,29 @@
   <div class="control-group">
     <%= f.label :totalHours, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :totalHours, :class => 'form-control' %>
+      <%= f.text_field :totalHours, 
+        :class => 'form-control', 
+        "ng-model" => "totalHours" %>
     </div>
     <%= error_span(@trial_balance[:totalHours]) %>
   </div>
   <div class="control-group">
     <%= f.label :valueHour, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :valueHour, :class => 'form-control' %>
+      <%= f.text_field :valueHour, 
+        :class => 'form-control', 
+        "ng-model" => "valueHour",
+        "ng-bind" => "valueHour",
+        "ng-change" => "calcTotal()" %>
     </div>
     <%= error_span(@trial_balance[:valueHour]) %>
   </div>
   <div class="control-group">
     <%= f.label :valueMonth, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :valueMonth, :class => 'form-control' %>
+      <%= f.text_field :valueMonth, 
+        :class => 'form-control', 
+        "ng-bind" => "totalValue" %>
     </div>
     <%= error_span(@trial_balance[:valueMonth]) %>
   </div>
