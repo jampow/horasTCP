@@ -11,17 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151126030345) do
-
-  create_table "trial_balances", force: :cascade do |t|
-    t.integer  "year"
-    t.integer  "month"
-    t.float    "totalHours"
-    t.float    "valueHour"
-    t.float    "valueMonth"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 20151213215939) do
 
   create_table "visits", force: :cascade do |t|
     t.date     "day"

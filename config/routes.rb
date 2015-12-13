@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :trial_balances
   get 'email/visit/:id' => 'email#visit'
 
   resources :visits
