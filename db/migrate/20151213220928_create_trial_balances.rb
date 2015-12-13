@@ -3,9 +3,9 @@ class CreateTrialBalances < ActiveRecord::Migration
     create_table :trial_balances do |t|
       t.integer :year
       t.integer :month
-      t.float :totalHours
-      t.float :valueHour
-      t.float :valueMonth
+      t.float :worked_hours
+      t.float :hour_price
+      t.float :total
 
       t.timestamps null: false
     end
