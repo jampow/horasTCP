@@ -1,4 +1,4 @@
-<%= form_for @trial_balance, :html => { :class => "form-horizontal trial_balance", "ng-app" => "trialBalance", "ng-controller" => "TrialBalanceController", "ng-init" => "totalHours=" + @trial_balance.totalHours.to_s } do |f| %>
+<%= form_for @trial_balance, :html => { :class => "form-horizontal trial_balance", "ng-app" => "trialBalance", "ng-controller" => "TrialBalanceController as tb", "ng-init" => "tb.valueHour=90;tb.totalHours=" + @trial_balance.totalHours.to_s } do |f| %>
 
     <% if @trial_balance.errors.any? %>
     <div id="error_expl" class="panel panel-danger">
@@ -22,6 +22,7 @@
     </div>
     <%= error_span(@trial_balance[:year]) %>
   </div>
+
   <div class="control-group">
     <%= f.label :month, :class => 'control-label' %>
     <div class="controls">
@@ -29,35 +30,39 @@
     </div>
     <%= error_span(@trial_balance[:month]) %>
   </div>
+
   <div class="control-group">
     <%= f.label :totalHours, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :totalHours, 
         :class => 'form-control', 
-        "ng-model" => "totalHours" %>
+        "ng-model" => "tb.totalHours",
+        "ng-change" => "tb.calcTotal()" %>
     </div>
     <%= error_span(@trial_balance[:totalHours]) %>
   </div>
+
   <div class="control-group">
     <%= f.label :valueHour, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :valueHour, 
         :class => 'form-control', 
-        "ng-model" => "valueHour",
-        "ng-bind" => "valueHour",
-        "ng-change" => "calcTotal()" %>
+        "ng-model" => "tb.valueHour",
+        "ng-change" => "tb.calcTotal()" %>
     </div>
     <%= error_span(@trial_balance[:valueHour]) %>
   </div>
+
   <div class="control-group">
     <%= f.label :valueMonth, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :valueMonth, 
         :class => 'form-control', 
-        "ng-bind" => "totalValue" %>
+        "ng-model" => "tb.totalValue" %>
     </div>
     <%= error_span(@trial_balance[:valueMonth]) %>
   </div>
+
 
 
   <%= f.submit nil, :class => 'btn btn-primary' %>
