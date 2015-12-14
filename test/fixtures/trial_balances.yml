@@ -1,15 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  year: 1
-  month: 1
-  worked_hours: 1.5
-  hour_price: 1.5
-  total: 1.5
+  year: 2015
+  month: 10
+  worked_hours: 7.5
+  hour_price: 90
 
 two:
-  year: 1
-  month: 1
-  worked_hours: 1.5
-  hour_price: 1.5
-  total: 1.5
+  year: 2015
+  month: 11
+  worked_hours: 4.5
+  hour_price: 90
