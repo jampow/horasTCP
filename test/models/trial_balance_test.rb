@@ -13,5 +13,23 @@ class TrialBalanceTest < ActiveSupport::TestCase
     assert_equal 4095, balance.total
   end
 
+  test "should not save a duplicated month and year trial balance" do
+    balance = TrialBalance.new(
+      :year => 2015,
+      :month => 11,
+      :worked_hours => 40,
+      :hour_price => 90
+    )
 
+    assert balance.save
+
+    balance2 = TrialBalance.new(
+      :year => 2015,
+      :month => 11,
+      :worked_hours => 44,
+      :hour_price => 90
+    )
+
+    assert_not balance2.save
+  end
 end
