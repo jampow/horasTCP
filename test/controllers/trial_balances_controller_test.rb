@@ -18,7 +18,7 @@ class TrialBalancesControllerTest < ActionController::TestCase
 
   test "should create trial_balance" do
     assert_difference('TrialBalance.count') do
-      post :create, trial_balance: { hour_price: @trial_balance.hour_price, month: @trial_balance.month, worked_hours: @trial_balance.worked_hours, year: @trial_balance.year }
+      post :create, trial_balance: { hour_price: @trial_balance.hour_price, month: @trial_balance.month, worked_hours: @trial_balance.worked_hours, year: 2015 }
     end
 
     assert_redirected_to trial_balance_path(assigns(:trial_balance))
