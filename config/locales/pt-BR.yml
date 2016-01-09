@@ -226,9 +226,10 @@ pt-BR:
       trial_balance:
         year: "Ano"
         month: "Mês"
-        totalhours: "Total de horas"
-        valuehour: "Valor da hora"
-        valuemonth: "Valor do mês"
+        worked_hours: "Horas trabalhadas"
+        hour_price: "Valor da hora"
+        total: "Total"
+        created_at: "Criado em"
       visit:
         day: "Dia"
         start: "Início"
